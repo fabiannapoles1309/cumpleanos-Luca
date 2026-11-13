@@ -15,7 +15,7 @@ function beginAudio(){
   // Must be called synchronously inside the tap event. No await before play().
   const attempt=audio.play();
   if(attempt && typeof attempt.then==='function') {
-    return attempt.then(()=>{playing=true;notice.textContent='♫ La música acompaña tu aventura';})
+    return attempt.then(()=>{playing=true;notice.textContent='';})
     .catch((err)=>{notice.textContent='♫ No se pudo iniciar el audio. Toca la pantalla para reintentarlo.';throw err;});
   }
   return Promise.resolve();
